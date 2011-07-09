@@ -1,8 +1,8 @@
 package com.tinkerpop.blueprints.pgm.impls.neo4j.util;
 
 
-import com.tinkerpop.blueprints.pgm.CloseableSequence;
 import com.tinkerpop.blueprints.pgm.Vertex;
+import com.tinkerpop.blueprints.pgm.WeightedCloseableSequence;
 import com.tinkerpop.blueprints.pgm.impls.neo4j.Neo4jGraph;
 import com.tinkerpop.blueprints.pgm.impls.neo4j.Neo4jVertex;
 import org.neo4j.graphdb.Node;
@@ -13,14 +13,16 @@ import java.util.Iterator;
 /**
  * @author Marko A. Rodriguez (http://markorodriguez.com)
  */
-public class Neo4jVertexSequence<T extends Vertex> implements CloseableSequence<Neo4jVertex> {
+public class Neo4jVertexSequence<T extends Vertex> implements WeightedCloseableSequence<Neo4jVertex> {
 
     private final Iterator<Node> nodes;
     private final Neo4jGraph graph;
+    private final boolean isHits;
 
     public Neo4jVertexSequence(final Iterable<Node> nodes, final Neo4jGraph graph) {
         this.graph = graph;
         this.nodes = nodes.iterator();
+        isHits = this.nodes instanceof IndexHits;
     }
 
     public void remove() {
@@ -40,8 +42,14 @@ public class Neo4jVertexSequence<T extends Vertex> implements CloseableSequence<
     }
 
     public void close() {
-        if (this.nodes instanceof IndexHits) {
+        if (isHits) {
             ((IndexHits) this.nodes).close();
         }
+    }
+
+    @Override
+    public float currentWeight() {
+        //System.err.println("currentWeight: " + (isHits ? ((IndexHits) this.nodes).currentScore() : 1f) + " (isHits: " + isHits + ")");
+        return isHits ? ((IndexHits) this.nodes).currentScore() : 1f;
     }
 }
