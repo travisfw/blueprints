@@ -100,7 +100,7 @@ public class GraphMLReader extends GraphMLHandler{
      */
     public static void inputGraph(final Graph graph, final InputStream graphMLInputStream) throws IOException {
         //TODO How to pass the ExtraTypeManager map?
-        GraphMLReader.inputGraph(graph, graphMLInputStream, 1000, null, null, GraphMLTokens.LABEL, GraphMLReader.buildExtraTypeHadlerMap(), 
+        GraphMLReader.inputGraph(graph, graphMLInputStream, 1000, null, null, GraphMLTokens.LABEL, GraphMLReader.buildExtraTypeHandlerMap(),
                 IndexTokens.DEFAUL_AUTO_INDEX_KEY, IndexTokens.DEFAUL_MANUAL_INDEX_KEY);
     }
 

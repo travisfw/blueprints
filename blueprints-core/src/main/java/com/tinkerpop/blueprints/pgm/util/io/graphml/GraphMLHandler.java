@@ -51,7 +51,7 @@ public class GraphMLHandler {
      */
     @SuppressWarnings("rawtypes")
     protected GraphMLHandler() {
-        this.extraTypeHandlerMap = buildExtraTypeHadlerMap();
+        this.extraTypeHandlerMap = buildExtraTypeHandlerMap();
     }
 
     /**
@@ -87,7 +87,7 @@ public class GraphMLHandler {
     }
 
     @SuppressWarnings("rawtypes")
-    protected static Map<String, ExtraTypeHandler> buildExtraTypeHadlerMap() {
+    protected static Map<String, ExtraTypeHandler> buildExtraTypeHandlerMap() {
         ServiceLoader<ExtraTypeHandler> serviceLoader = ServiceLoader.load(ExtraTypeHandler.class,ClassLoader.getSystemClassLoader());
         Iterator<ExtraTypeHandler> iterator = serviceLoader.iterator();
         ExtraTypeHandler handler;
