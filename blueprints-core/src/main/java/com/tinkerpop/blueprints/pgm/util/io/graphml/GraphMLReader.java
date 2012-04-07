@@ -72,8 +72,8 @@ public class GraphMLReader extends GraphMLHandler{
      */
     public void inputGraph(final InputStream graphMLInputStream) throws IOException {
         GraphMLReader.inputGraph(this.graph, graphMLInputStream, 1000, this.vertexIdKey, this.edgeIdKey, this.edgeLabelKey, this.extraTypeHandlerMap, 
-            this.automaticIndexKey == null ? IndexTokens.DEFAUL_AUTO_INDEX_KEY : this.automaticIndexKey, 
-            this.manualIndexKey == null ? IndexTokens.DEFAUL_MANUAL_INDEX_KEY : this.manualIndexKey);
+            this.automaticIndexKey == null ? IndexTokens.DEFAULT_AUTO_INDEX_KEY : this.automaticIndexKey,
+            this.manualIndexKey == null ? IndexTokens.DEFAULT_MANUAL_INDEX_KEY : this.manualIndexKey);
     }
 
     /**
@@ -86,8 +86,8 @@ public class GraphMLReader extends GraphMLHandler{
      */
     public void inputGraph(final InputStream graphMLInputStream, int bufferSize) throws IOException {
         GraphMLReader.inputGraph(this.graph, graphMLInputStream, bufferSize, this.vertexIdKey, this.edgeIdKey, this.edgeLabelKey, this.extraTypeHandlerMap, 
-            this.automaticIndexKey == null ? IndexTokens.DEFAUL_AUTO_INDEX_KEY : this.automaticIndexKey, 
-            this.manualIndexKey == null ? IndexTokens.DEFAUL_MANUAL_INDEX_KEY : this.manualIndexKey);
+            this.automaticIndexKey == null ? IndexTokens.DEFAULT_AUTO_INDEX_KEY : this.automaticIndexKey,
+            this.manualIndexKey == null ? IndexTokens.DEFAULT_MANUAL_INDEX_KEY : this.manualIndexKey);
     }
 
     /**
@@ -101,7 +101,7 @@ public class GraphMLReader extends GraphMLHandler{
     public static void inputGraph(final Graph graph, final InputStream graphMLInputStream) throws IOException {
         //TODO How to pass the ExtraTypeManager map?
         GraphMLReader.inputGraph(graph, graphMLInputStream, 1000, null, null, GraphMLTokens.LABEL, GraphMLReader.buildExtraTypeHandlerMap(),
-                IndexTokens.DEFAUL_AUTO_INDEX_KEY, IndexTokens.DEFAUL_MANUAL_INDEX_KEY);
+                IndexTokens.DEFAULT_AUTO_INDEX_KEY, IndexTokens.DEFAULT_MANUAL_INDEX_KEY);
     }
 
     /**

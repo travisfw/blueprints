@@ -30,8 +30,8 @@ package com.tinkerpop.blueprints.pgm.util.io.graphml.extra;
  *
  */
 public class IndexTokens {
-	public static final String DEFAUL_AUTO_INDEX_KEY = "autoIndexName";
-	public static final String DEFAUL_MANUAL_INDEX_KEY = "manualIndexName";
+	public static final String DEFAULT_AUTO_INDEX_KEY = "autoIndexName";
+	public static final String DEFAULT_MANUAL_INDEX_KEY = "manualIndexName";
 	public static final String INDEX_SEPARATOR = "!";
 	public static final String INDEX_SEPARATOR_REGEX = INDEX_SEPARATOR;
 }

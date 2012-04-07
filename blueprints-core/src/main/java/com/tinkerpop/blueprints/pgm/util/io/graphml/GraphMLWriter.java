@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -103,10 +102,10 @@ public class GraphMLWriter extends GraphMLHandler {
         if (graph instanceof IndexableGraph) {
             checkManualIndex = true;
             if (this.automaticIndexKey ==  null)
-                this.automaticIndexKey = IndexTokens.DEFAUL_AUTO_INDEX_KEY;
+                this.automaticIndexKey = IndexTokens.DEFAULT_AUTO_INDEX_KEY;
 
             if (this.manualIndexKey == null)
-                this.manualIndexKey = IndexTokens.DEFAUL_MANUAL_INDEX_KEY;
+                this.manualIndexKey = IndexTokens.DEFAULT_MANUAL_INDEX_KEY;
 
             automaticIndexMap = new HashMap<String, Set<String>>();
             Iterator<Index<? extends Element>> indices = ((IndexableGraph)graph).getIndices().iterator();
