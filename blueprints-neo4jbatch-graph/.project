@@ -1,0 +1,17 @@
+<projectDescription>
+  <name>blueprints-neo4jbatch-graph</name>
+  <comment>Blueprints property graph implementation for the Neo4j batch inserter. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>blueprints-core</project>
+    <project>blueprints-neo4j-graph</project>
+    <project>blueprints-test</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
