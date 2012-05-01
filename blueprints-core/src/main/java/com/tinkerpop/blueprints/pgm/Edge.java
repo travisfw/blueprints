@@ -15,19 +15,19 @@ public interface Edge extends Element {
      *
      * @return the tail vertex
      */
-    public Vertex getOutVertex();
+    public Vertex[] getOutVertices();
 
     /**
      * Return the vertex on the head of the edge.
      *
      * @return the head vertex
      */
-    public Vertex getInVertex();
+    public Vertex[] getInVertices();
 
     /**
      * Return the label associated with the edge.
      *
      * @return the edge label
      */
-    public String getLabel();
+    public Vertex[] getLabels();
 }

@@ -1,6 +1,6 @@
 package com.tinkerpop.blueprints.pgm;
 
-import java.util.Set;
+import java.io.InputStream;
 
 /**
  * An element is the base class for both vertices and edges.
@@ -19,14 +19,14 @@ public abstract interface Element {
      * @param key the key of the key/value property
      * @return the object value related to the string key
      */
-    public Object getProperty(String key);
+    public Iterable<InputStream> getProperty(InputStream key);
 
     /**
      * Return all the keys associated with the element.
      *
      * @return the set of all string keys associated with the element
      */
-    public Set<String> getPropertyKeys();
+    public Iterable<InputStream> getPropertyKeys();
 
     /**
      * Assign a key/value property to the element.
@@ -35,16 +35,24 @@ public abstract interface Element {
      * @param key   the string key of the property
      * @param value the object value o the property
      */
-    public void setProperty(String key, Object value);
+    public void setProperty(InputStream key, InputStream value);
 
     /**
      * Unassigns a key/value property from the element.
-     * The object value of the removed property is returned.
+     * The values of the removed properties are returned.
      *
      * @param key the key of the property to remove from the element
-     * @return the object value associated with that key prior to removal
+     * @return the values associated with that key prior to removal
      */
-    public Object removeProperty(String key);
+    public Iterable<InputStream> removeProperty(InputStream key);
+
+    /**
+     * Unassigns a key/value property from the element.
+     *
+     * @param key the key of the property to remove from the element
+     * @param val the value to remove
+     */
+    public void removeProperty(InputStream key, InputStream val);
 
     /**
      * An identifier that is unique to its inheriting class.
